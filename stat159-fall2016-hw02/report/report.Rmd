@@ -1,0 +1,12 @@
+```{r}
+load('../data/regression.RData')
+library("xtable")
+table1 <- xtable(regression_sum,
+              caption = 'Information about Regression Coefficents',
+              digits = 2)
+row.names(table1) <- c('(Intercept)','TV')
+
+print(table1, caption.placement = 'top',
+      comment = getOption("xtable.comment", FALSE))
+```
+
