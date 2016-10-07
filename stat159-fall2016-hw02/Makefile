@@ -3,7 +3,7 @@
 all: eda-output.txt regression.RData report.pdf
 
 data:
-        data/curl -O http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv
+        data/curl -o http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv
 
 report.pdf: report/report.Rmd regression.RData images/scatterplot-tv-sales.png
 	Rscript -e "library(rmarkdown); render('report/report.Rmd', 'pdf_document')"
