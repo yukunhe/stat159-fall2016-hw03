@@ -52,11 +52,20 @@ print(xtable(cor.mat, caption = 'Correlations Matrix'), comment = FALSE)
 
 From table 5, we can see that there is weak correlation between sales and newspaper but strong correlation between sales and tv and sales and radio.
 
+```{r, results = "asis", echo = F}
+source('../code/functions/regression-functions.R')
+Quantity<- c("RSS", "R-square", "F-Statistics")
+Value <- c(residual_std_error(mod.multi), r_squared(mod.multi), f_statistic(mod.multi))
+print(xtable(data.frame(Quantity, Value), caption = "Regression Quality Statistics"), comment = FALSE)
+```
+
+From the table 6, we can see that the r squared is large, which indicates a strong multiple linear relationship between the four factors. F statistic is very large, which furhter justifies that there's a strong multiple linear relationship between the four factors. 
+
 \includegraphics[width=500pt]{../images/residual-plot.png}
 
-From the graph, we can see that 
+From the graph, we can see that the residuals are not quite random. The residuals are not randomly distributed around 0 and they seems to have a trend. We can interpret it as multiple linear regression model may not be the best model to fit the data set. 
 
 Conclusion
 ===
-We can concludes that there's a linear relationship between tv and sales and radio and sales, but the relationship between newspaper and sales is weak.
+We can concludes that there's a linear relationship between tv and sales and radio and sales, but the relationship between newspaper and sales is weak. Overall, when fitting a multiple linear regression model to the data set, the model may not be the best model. We can try to remove the newspaper factor or fit some other models to find the best fit for the data set. 
 
