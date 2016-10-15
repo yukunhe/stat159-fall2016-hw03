@@ -10,7 +10,7 @@ summary.radio = summary(mod.radio)
 summary.newspaper = summary(mod.newspaper)
 
 save( mod.tv, mod.radio,mod.newspaper, mod.multi, summary.multi,summary.tv,
-      summary.radio,summary.newspaper,"data/regression.RData")
+      summary.radio,summary.newspaper,file = "data/regression.RData")
 
 png("images/residual-plot.png")
 plot(mod.multi, 1)

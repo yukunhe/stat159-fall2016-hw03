@@ -17,10 +17,11 @@ hist(data$Radio, main = "Histogram of Radio", xlab = "Radio")
 dev.off()
 
 png("images/scatterplot-matrix.png")
-pairs(data[-1])
+pairs(data[,2:5])
 dev.off()
 
-save(cor(data[-1]),"data/correlation-matrix.RData")
+cor.mat = cor(data[,2:5])
+save(cor.mat, file = "data/correlation-matrix.RData")
 
 sink("data/eda-output.txt")
 cat("Summary Statistics for TV:\n")
@@ -32,6 +33,6 @@ summary(data$Newspaper)
 cat("Summary Statistics for Sales:\n")
 summary(data$Sales)
 cat("Correlation Matrix:\n")
-cor(data[-1])
+cor(data[,2:5])
 sink()
 
