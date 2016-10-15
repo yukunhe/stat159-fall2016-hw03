@@ -1,5 +1,4 @@
-data = read.csv('data/Advertising.csv', header= T)
-mod.multi = lm(Sales ~ TV + Radio + Newspaper, data = data)
+
 
 # The residual_sum_squares function takes the 'lm' object as input and the output is the
 # $RSS$
